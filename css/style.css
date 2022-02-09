@@ -1,0 +1,196 @@
+*{                  /* "*" selects everything*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*box-sizing: ;= it specify the behaviour of the width and height*/       /*border-box = it will force the boxes to stay within the alignment regardless what size you input we did this to fix problem with form after defining width and height*/
+}
+
+a{
+    text-decoration: none;/*this will remove the underlines*/
+}
+.container {
+    width: 1140px;
+    margin: 0 auto;     /*auto is one way to center when you have a predetermined width*/
+}
+
+body {
+    display: grid; /*distributes element into a table like grid with columns and rows*/
+
+    grid-template-rows: 100px 1fr 50px; /*it will understand from this to distribute the body into 3 rows with these sizes*/
+    /*fr= is a fractional unit not set it takes the size of what is in it not easy but very useful; 
+    problems happen when something on the element is already predefined to take a certain size 
+    e.g full screen width or height*/
+
+    grid-template-columns: 1fr 1fr; /* problem happened as some elements already have defined full screen dimension and so it exceeded the size of screen*/
+/* 1fr 1fr = 2 col.*/
+}
+
+section {
+    margin-bottom: 20px!important; 
+    /*we already had a margin defined so we use important to force it to implement this margin over the one we already outlined in our code*/
+
+
+}
+
+header{
+    height: 100px;
+    grid-column: 1 / 3; /*as there is 2 columns the start point and end point are "1" & "3" or you can use "1 / -1" 
+    makes it take full size of columns pre set in body grid to fix the problem that happened*/
+
+    display: flex; /*on this case it becomes flexiable further more in this case it was distributed on both col. we created erlier in body*/
+    align-items: center; /*aplicable for flex and grid*/
+    justify-content: space-between; /*controls the space horizontally between them*/ 
+
+    /*poition fixed = stays in the place i give it even if i scroll down and will cover any element under it*/
+    /*using poition could ruin your design so need to fully understand it and how to contain it before using it*/
+    /*position: fixed; => top: 0px; left: 0px; right: 0px; thats one way to contain some aspects of it*/
+    /*when we used fixed for header we faced a problem with footer*/
+
+    z-index: 2; /*when you have multiple layers it will put to front or back of those layers*/
+}
+
+header .header-nav{
+    float: right;
+    margin-top: 41px; /*41 to make it almost centered*/
+    color: #fff;
+}
+
+header .header-nav a {
+    border: 1px solid #000; /* width style color*/
+    padding: 10px 20px;/*top&bottom right&left*/
+    margin: 10px 20px;/*top&bottom right&left*/
+    border-radius: 5px; /*makes edges of border curved instead of sharp edges*/
+    text-transform: uppercase;/*we can use this to make all text uppercase*/
+}
+
+.header-logo {
+    width: 80px;
+    height: 80px; /*we did this to show how to change html settings in css in this case for image*/
+
+    object-fit: cover; /* used to define how object fits in element used here for image and cover is so it doesnt ruin the design this way the quality of the image itself will not be effected*/
+    
+}
+
+
+main {
+    grid-column: 1 / -1; /*as there is 2 columns the start point and end point are "1" & "3" or you can use "1 / -1" 
+    makes it take full size of columns pre set in body grid to fix the problem that happened*/ 
+    /*now our website is back to normal we fixed header footer and main*/ 
+
+    /*grid-row: 1 / 3 ;*/  
+    /*after we said how many grid rows we want on our website we disrbute the parts of the body assigning them locations in those rows*/
+/*we did this while explaining after the fixed poition command for the header*/
+}
+
+.hero{
+    height:100vh; /*vh = view height*/
+    width: 100%;                        /*height and width is for section display size on website not just image*/
+    
+    background-image: url(https://wallpaperaccess.com/full/138728.jpg);
+    /* background-image: url(https://via.placeholder.com/1920x1080); */
+     /* 1920x1080 = full hd*/
+    background-size: cover; /*when you change the size you are changing the size on your website not the hd image being used it will still be hd as the size is 1920x1080*/
+    display: flex;
+    align-items: center;
+    justify-content: center;/*after putting in these commands we faced a problem that the 2 different headers became on the same line*/
+    flex-direction: column;/* controls how the flex looks like*/ /*we used this so the headers are on top of each other*/
+    /*if we add position: relative it will work with the position: absolute to actually target this element so the overlay works*/
+    background-attachment: fixed; /* creates the effect of curtens up when you scroll down it raises on the b.g image like curtens*/
+}
+
+.hero h1,
+.hero h2 { /* this is how you select 2 elements to have the same css property*/
+ color: #fff;
+ z-index: 2; /*when you have multiple layers it will put to front or back of those layers*/
+
+}
+
+
+.hero::after {  /*"::" means after the 2 columns that we already created*/
+background-color: rgba(0, 0, 0, 0.5); /*this code means black background with 0.5 opacity*/
+position: absolute; /*its absolutly having the element where you want*/
+width: 100px; /* absolute is different from fixed as it will take a certin location and stay in it fixed will stay in position while you scroll*/
+height: 100px; /* if we change width=100%, height=100% and topbottom leftright= 0 it doesnt really take the size of the element we are trying to overlay thats one of the problems of position: absolute*/ 
+top: 400px;
+left: 100px;
+content: ''; /*we have to add content to after so we can link it to html and view it*/
+}
+
+.about-us{
+display: flex;/*on this case it becomes flexiable further more in this case it was distributed on both col. we created erlier in body*/
+gap: 100px; /*this creates gap between the col. not the sides*/
+line-height: 2; /* this made a spacing between the lines*/
+align-items: center; /*aplicable for flex and grid*/
+height: 600px;/* we do this so we can see the element center align*/
+ 
+}
+
+.about-us article:first-child { /*no idea what this does but we faced a problem after adding overflow: hidden; and this fixed  it*/
+    width: 500px;
+}
+
+.image-container {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;/*once the image goes out of alignment it hides that part*/
+   
+}
+
+.image-container:hover img{ /*here when mouse hovers over the image in website
+     it will increase in size by 1.2*/ transform:scale(1.2);
+     transition: 0.3s;/*makes your transform transition more smooth*/ 
+
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.services{
+    display: flex;/*on this case it becomes flexiable further more in this case it was distributed on both col. we created erlier in body*/
+    gap: 100px; /*this creates gap between the col. not the sides*/
+    line-height: 2; /* this made a spacing between the lines*/
+    align-items: center; /*aplicable for flex and grid*/
+}
+
+.services > div{ /*this means inside services only the <div> will be choose we add ">" meaning if we have div inside div only the 1st div will be selected*/
+
+    width: 100%; /*to make sure that or element occupies the full width so no gaps*/
+background:#fff;
+ filter: drop-shadow(2px 4px 6px rgba(0,0,0,2));
+ height: 120px;
+padding: 10px;
+text-align: center;
+}
+
+.contact-us form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* repeat(3, 1fr) = typing 1fr 1fr 1fr meaning 3 col.*/ 
+    /*the fr is more useful than any unit as it will stick to the width of everything you already set without excess*/
+
+    gap: 10px 20px; /* this is making a gap of 10 between the rows and 20 between columns*/
+}
+
+.contact-us form input{
+width: 100%;
+height: 40px;
+padding: 5px 10px;
+
+}
+
+footer{
+    grid-column: 1 / 3; /*as there is 2 columns the start point and end point are "1" & "3" or you can use "1 / -1"
+    makes it take full size of columns pre set in body grid to fix the problem that happened*/
+
+/* text-align: center; we would use this to align text horizontally not vertically instead we did below whats better*/
+    /*grid-row: 3 / 4;*/   
+    /*after we said how many grid rows we want on our website we disrbute the parts of the body assigning them locations in those rows*/
+    /*we did this while explaining after the fixed poition command for the header*/
+    
+    display: flex;
+    align-items: center; /*aligns iteam vertically*/
+    justify-content: center;/*through this its aligned horizontally*/
+    background-color: #000;
+    color: #fff; /*when learning we have been using hexi color codes sometimes we might have to use RGB & RGBA color codes they are better as the names dont represent the full color spectrum */
+
+}

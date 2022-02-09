@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--internal styling = <style>.header-nav{}  #id {}   a{color: 000} </style> -->
+    <link rel="stylesheet" href="./css/style.css" class="css">
+</head>
+
+<body>
+
+    <header  class="container">
+        <img src="https://via.placeholder.com/150x100/632626" alt="image 1 header" class="header-logo">
+        <!--img.header-logo-->
+        <!--150x100 image size and image from placeholder.com-->
+        <!--000 = black color/ use colorhunt-->
+
+
+        <nav class="header-nav">
+            <!--in line styling = styles""-->
+            <!--nav.header-nav-->
+            <a href="">home</a>
+            <!--a*5-->
+            <a href="">about</a>
+            <a href="">services</a>
+            <a href="">contact</a>
+            <a href="">book now</a>
+
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <!--secction.hero-->
+            <h1> Master Card </h1>
+            <h2> Not Everything can be bought using cash </h2>
+        </section>
+
+        <section class="about-us container">
+            <!--section.about-us--> <!--container is a second class for the same element-->
+            <article>
+                <!--article*2 -->
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius aliquam ad cupiditate voluptatum
+                    aspernatur itaque,
+                    ea harum eos magnam porro cumque molestias odit autem, nemo commodi sit quae. Vitae, sint! </p>
+                <!-- "lorem" short cut creates dumy text-->
+                <ul>
+                    <!--ul>li*3-->
+                    <li>List 1</li>
+                    <!--block level = reserves the whole line-->
+                    <li>List 2</li>
+                    <li>List 3</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae neque repellat assumenda expedita mollitia nemo sint? 
+                    Iusto harum fugit aliquam explicabo aperiam, blanditiis porro consequatur voluptas obcaecati aut quos ab!</p>
+            </article>
+
+            <article class="image-container">
+                <!--article is like div-->
+                <img src="https://wallpaperaccess.com/full/138783.jpg" alt="image 2 article 2 main">
+                <!-- <img src="https://via.placeholder.com/500x500/632626" alt="image 2 article 2 main"> -->
+            </article>
+        </section>
+
+        <section class="services container">
+            <!--section.services--><!--container is a second class for the same element-->
+            <div>
+                <!--div*3>h2+p-->
+                <h2>Service 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div>
+                <h2>service 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div>
+                <h2>service 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+        </section>
+
+        <section class="contact-us container">
+            <!--section.contact=us--> <!--container is a second class for the same element-->
+            <form action="">
+                <div class="form-control"><input placeholder="Id Number" type="text"></div>
+                <!--div.form-control*6>input--><!--Placeholder is like label but hint is placed inside the box-->
+                <div class="form-control"><input placeholder="Full Name" type="text"></div>
+                <div class="form-control"><input placeholder="Email" type="text"></div>
+                <div class="form-control"><input placeholder="Number" type="text"></div>
+                <div class="form-control"><input placeholder="Gender" type="text"></div>
+                <div class="form-control"><input placeholder="Messege" type="text"></div>
+            </form>
+        </section>
+
+    </main>
+    <footer>
+        All rights reserved ASAC&copy; 2022
+    </footer>
+</body>
+
+</html>
